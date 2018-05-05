@@ -112,12 +112,13 @@ public class BookProvider extends ContentProvider {
     }
 
 
-//    @Override
+    @Override
     public int delete(Uri uri, String sel, String[] selArgs) {
         SQLiteDatabase myDb = mDbHelper.getWritableDatabase();
-        long id = myDb.delete(BookEntry.TABLE_NAME, sel, selArgs);
-        return 0;
+        return myDb.delete(BookEntry.TABLE_NAME, null, null);
     }
+
+
 
 
     @Override

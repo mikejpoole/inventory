@@ -36,28 +36,31 @@ public class BookCursorAdapter extends CursorAdapter {
         // BOOK TITLE
         TextView tvTitle = (TextView) view.findViewById(R.id.bookTitle);
         int titleColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_TITLE);
-
-        Log.w(LOG_TAG,"The column index for title is " + titleColumnIndex);
-
         String title = c.getString(titleColumnIndex);
         tvTitle.setText(title);
 
         // BOOK PRICE
         TextView tvPrice = (TextView) view.findViewById(R.id.bookPrice);
         int priceColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_PRICE);
-
-        Log.w(LOG_TAG,"The column index for price is " + priceColumnIndex);
-
-//        String price = c.getString(priceColumnIndex);
-//        tvPrice.setText(price);
+        String price = "Price: £" + c.getString(priceColumnIndex);
+        tvPrice.setText(price);
 
         // QUANTITY
         TextView tvQuantity = (TextView) view.findViewById(R.id.bookQuantity);
         int quantityColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);
-//        String quantity = c.getString(quantityColumnIndex);
-//        tvQuantity.setText(quantity);
+        String quantity = "Quantity: " + c.getString(quantityColumnIndex);
+        tvQuantity.setText(quantity);
 
-        // TODO: Populate other columns
+        // SUPPLIER COMPANY AND PHONE NUMBER
+        TextView tvSupplier = (TextView) view.findViewById(R.id.bookSupplier);
+        int supplierCompanyNameColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_SUPPLIER_COMPANY_NAME);
+        int supplierPhoneColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE);
+        String supplier = "Supplier: "
+                + c.getString(supplierCompanyNameColumnIndex)
+                + " (Phone "
+                + c.getString(supplierPhoneColumnIndex)
+                + ")";
+        tvSupplier.setText(supplier);
     }
 
 }

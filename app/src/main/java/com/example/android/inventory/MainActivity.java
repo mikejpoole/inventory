@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.example.android.inventory.data.BookContract.BookEntry;
+import com.example.android.inventory.data.BookDbHelper;
+import com.example.android.inventory.data.BookProvider;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private static final int BOOK_LOADER = 0;
     BookCursorAdapter mCursorAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,13 +71,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     public void deleteAllBooks(){
-        //Uri myUri = getContentResolver().delete(BookEntry.CONTENT_URI, null, null);
+        int iDeletedRows = getContentResolver().delete(BookEntry.CONTENT_URI, null, null);
+
+        Log.w(LOG_TAG, iDeletedRows + " rows deleted.");
     }
 
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        String[] projection = {BookEntry._ID, BookEntry.COLUMN_BOOK_TITLE};
+        String[] projection = {BookEntry._ID, BookEntry.COLUMN_BOOK_TITLE, BookEntry.COLUMN_BOOK_QUANTITY,
+                BookEntry.COLUMN_BOOK_PRICE, BookEntry.COLUMN_BOOK_SUPPLIER_COMPANY_NAME, BookEntry.COLUMN_BOOK_SUPPLIER_PHONE};
 
         // EXECUTE THE QUERY IN THE BACKGROUND
         return new CursorLoader(this, BookEntry.CONTENT_URI, projection,null,null,null);
