@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Inventory</string>
+
+    <string name="welcome_text">The books will be displayed here when the UI is created.</string>
+
+    <string name="book_insert_failed">WARNING: Inserting the book into the database failed.</string>
+    <string name="book_insert_success">The book was added to the database.</string>
+</resources>
