@@ -173,14 +173,9 @@ public class BookEdit extends AppCompatActivity implements LoaderManager.LoaderC
         return true;
     }
 
-    /**
-     * This method is called after invalidateOptionsMenu(), so that the
-     * menu can be updated (some menu items can be hidden or made visible).
-     */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        // If this is a new pet, hide the "Delete" menu item.
         if (mCurrentBookUri == null) {
             MenuItem menuItem = menu.findItem(R.id.action_delete);
             menuItem.setVisible(false);
@@ -190,9 +185,7 @@ public class BookEdit extends AppCompatActivity implements LoaderManager.LoaderC
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
-            // Respond to a click on the "Save" menu option
             case R.id.action_save:
                 saveBook();
                 finish();
@@ -210,19 +203,14 @@ public class BookEdit extends AppCompatActivity implements LoaderManager.LoaderC
                     return true;
                 }
 
-                // Otherwise if there are unsaved changes, setup a dialog to warn the user.
-                // Create a click listener to handle the user confirming that
-                // changes should be discarded.
                 DialogInterface.OnClickListener discardButtonClickListener =
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                // User clicked "Discard" button, navigate to parent activity.
                                 NavUtils.navigateUpFromSameTask(BookEdit.this);
                             }
                         };
 
-                // Show a dialog that notifies the user they have unsaved changes
                 showUnsavedChangesDialog(discardButtonClickListener);
                 return true;
         }
@@ -290,10 +278,8 @@ public class BookEdit extends AppCompatActivity implements LoaderManager.LoaderC
             etSupplier.setText(supplier);
             etPhone.setText(phone);
 
-
             // ALSO SAVE PHONE TO VARIABLE TO USE FOR THE DIALER INTENT
             sPhone = phone;
-
 
             // UPDATE BOOK COVER
             // TODO = Add some validation if no image exists
@@ -316,7 +302,6 @@ public class BookEdit extends AppCompatActivity implements LoaderManager.LoaderC
                 iv.setImageDrawable(emptyBook);
             }
 
-
             // LISTENERS TO INCREMENT AND DECREMENT STOCK
             Button btnPlus = findViewById(R.id.btnPlus);
             btnPlus.setOnClickListener(new View.OnClickListener() {
@@ -337,7 +322,6 @@ public class BookEdit extends AppCompatActivity implements LoaderManager.LoaderC
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        // If the loader is invalidated, clear out all the data from the input fields.
         etTitle.setText("");
         etPrice.setText("");
         etQuantity.setText("");

@@ -16,6 +16,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/insert_sharepoint"
+        android:title="@string/menu_add_sharepoint"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_delete_all_entries"
         android:title="@string/menu_delete_all"
         app:showAsAction="never" />

@@ -53,6 +53,8 @@
             android:layout_below="@+id/empty_title_text"
             android:layout_centerHorizontal="true"
             android:paddingTop="8dp"
+            android:paddingLeft="48dp"
+            android:paddingRight="48dp"
             android:textSize="18sp"
             android:text="@string/nobooks_subtitle"
             android:textColor="@color/colorAccent"/>

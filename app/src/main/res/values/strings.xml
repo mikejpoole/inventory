@@ -4,7 +4,7 @@
     <string name="welcome_text">The books will be displayed here when the UI is created.</string>
 
     <string name="nobooks_title">No Books</string>
-    <string name="nobooks_subtitle">Please add a book</string>
+    <string name="nobooks_subtitle">Please add a book by clicking on the plus symbol in the bottom right</string>
 
     <string name="book_insert_failed">WARNING: Inserting the book into the database failed.</string>
     <string name="book_insert_success">The book was added to the database.</string>
@@ -21,6 +21,7 @@
 
     <string name="menu_add_hobbit">Add The Hobbit</string>
     <string name="menu_add_lotr">Add Lord of the Rings Trilogy</string>
+    <string name="menu_add_sharepoint">Add SharePoint Designer</string>
     <string name="menu_delete_all">Delete all Books</string>
     <string name="menu_action_delete">Delete Book</string>
     <string name="menu_action_save">Save Book</string>

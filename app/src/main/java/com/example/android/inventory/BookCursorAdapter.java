@@ -1,8 +1,11 @@
 package com.example.android.inventory;
 
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.inventory.data.BookContract.BookEntry;
 
@@ -32,20 +36,20 @@ public class BookCursorAdapter extends CursorAdapter {
     // CREATE EMPTY LIST ITEM VIEW
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        // Inflate a list item view using the layout specified in list_item.xml
         return LayoutInflater.from(context).inflate(R.layout.book_list_item, parent, false);
     }
 
 
     // BIND THE DATA TO THE CORRECT PART OF THE LIST
     @Override
-    public void bindView(View view, Context context, Cursor c) {
-//        Log.i(LOG_TAG,"Binding data...");
+    public void bindView(View view, final Context context, Cursor c) {
+        // THE ROW ID
+        final int iRow = c.getInt(c.getColumnIndexOrThrow(BookEntry._ID));
 
         // BOOK TITLE
         TextView tvTitle = (TextView) view.findViewById(R.id.bookTitle);
         int titleColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_TITLE);
-        String title = c.getString(titleColumnIndex);
+        final String title = c.getString(titleColumnIndex);
         tvTitle.setText(title);
 
         // BOOK PRICE
@@ -56,9 +60,37 @@ public class BookCursorAdapter extends CursorAdapter {
 
         // QUANTITY
         TextView tvQuantity = (TextView) view.findViewById(R.id.bookQuantity);
-        int quantityColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);
+        final int quantityColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);
         String quantity = "Quantity: " + c.getString(quantityColumnIndex);
         tvQuantity.setText(quantity);
+
+
+        // SALE BUTTON: Task 2198: REDUCE QUANTITY BY ONE
+        String sQty = c.getString(quantityColumnIndex);
+        final int iQtyMinusOne = Integer.parseInt(sQty) - 1;
+
+        Button btnSale = view.findViewById(R.id.btnSale);
+
+        btnSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (quantityColumnIndex > 1 && iQtyMinusOne >= 0) {
+                    ContentValues values = new ContentValues();
+                    values.put(BookEntry.COLUMN_BOOK_QUANTITY, iQtyMinusOne);
+                    Uri mCurrentInventoryUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, iRow);
+                    int rowsUpdated = context.getContentResolver().update(mCurrentInventoryUri, values, null, null);
+
+                    if (rowsUpdated == 0) {
+                        Toast.makeText(context.getApplicationContext(), "No rows were updated", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context.getApplicationContext(), "You have sold a copy of " + title, Toast.LENGTH_SHORT).show();
+                    }
+                } else if (iQtyMinusOne < 0) {
+                    Toast.makeText(context.getApplicationContext(), "We have sold out of " + title, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
         // SUPPLIER COMPANY AND PHONE NUMBER
         TextView tvSupplier = (TextView) view.findViewById(R.id.bookSupplier);
@@ -78,8 +110,6 @@ public class BookCursorAdapter extends CursorAdapter {
 
 
         // ADD LOCALLY STORED IMAGES INSTEAD
-        // TODO: MUST NOT FAIL IF EMPTY
-
         ImageView iv = (ImageView) view.findViewById(R.id.bookImage);
         int coverColumnIndex = c.getColumnIndex(BookEntry.COLUMN_BOOK_COVER);
         String sCoverColumnIndex = Integer.toString(coverColumnIndex);
