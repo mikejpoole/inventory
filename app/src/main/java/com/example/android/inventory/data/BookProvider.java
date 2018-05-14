@@ -42,7 +42,6 @@ public class BookProvider extends ContentProvider {
         SQLiteDatabase myDb = mDbHelper.getReadableDatabase();
         Cursor c;
 
-        // Figure out if the URI matcher can match the URI to a specific code
         int match = sUriMatcher.match(uri);
         switch (match) {
             case BOOKS:
@@ -105,20 +104,100 @@ public class BookProvider extends ContentProvider {
     }
 
 
-//    @Override
-    public int update(Uri uri, ContentValues contentValues, String sel, String[] selArgs) {
-        // NOT CALLED BUT WHEN IT IS REMEMBER THE OVERRIDE
-        return 0;
+    @Override
+    public int update(Uri uri, ContentValues contentValues, String selection,
+                      String[] selectionArgs) {
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case BOOKS:
+                return updateBook(uri, contentValues, selection, selectionArgs);
+            case BOOK_ID:
+                selection = BookEntry._ID + "=?";
+                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                return updateBook(uri, contentValues, selection, selectionArgs);
+            default:
+                throw new IllegalArgumentException("Update is not supported for " + uri);
+        }
     }
 
+
+    private int updateBook(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+        // VALIDATION
+        if (values.containsKey(BookEntry.COLUMN_BOOK_TITLE)) {
+            String name = values.getAsString(BookEntry.COLUMN_BOOK_TITLE);
+            if (name == null) {
+                throw new IllegalArgumentException("The book requires a title");
+            }
+        }
+
+        if (values.containsKey(BookEntry.COLUMN_BOOK_PRICE)) {
+            String price = values.getAsString(BookEntry.COLUMN_BOOK_PRICE);
+            if (price == null) {
+                throw new IllegalArgumentException("The book requires a price");
+            }
+        }
+
+        if (values.containsKey(BookEntry.COLUMN_BOOK_QUANTITY)) {
+            Integer quantity = values.getAsInteger(BookEntry.COLUMN_BOOK_QUANTITY);
+            if (quantity == null) {
+                throw new IllegalArgumentException("The book requires a quantity");
+            }
+        }
+
+        if (values.containsKey(BookEntry.COLUMN_BOOK_SUPPLIER_COMPANY_NAME)) {
+            String company = values.getAsString(BookEntry.COLUMN_BOOK_SUPPLIER_COMPANY_NAME);
+            if (company == null) {
+                throw new IllegalArgumentException("The book requires a supplier name");
+            }
+        }
+
+        if (values.containsKey(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE)) {
+            String phone = values.getAsString(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE);
+            if (phone == null) {
+                throw new IllegalArgumentException("The book requires the phone number of the supplier");
+            }
+        }
+
+        // Only proceed if new values to be updated
+        if (values.size() == 0) {
+            return 0;
+        }
+
+        SQLiteDatabase database = mDbHelper.getWritableDatabase();
+        int rowsUpdated = database.update(BookEntry.TABLE_NAME, values, selection, selectionArgs);
+
+        if (rowsUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return rowsUpdated;
+    }
 
     @Override
-    public int delete(Uri uri, String sel, String[] selArgs) {
-        SQLiteDatabase myDb = mDbHelper.getWritableDatabase();
-        return myDb.delete(BookEntry.TABLE_NAME, null, null);
+    public int delete(Uri uri, String selection, String[] selectionArgs) {
+        SQLiteDatabase database = mDbHelper.getWritableDatabase();
+        int rowsDeleted;
+
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case BOOKS:
+                rowsDeleted = database.delete(BookEntry.TABLE_NAME, selection, selectionArgs);
+                break;
+            case BOOK_ID:
+                selection = BookEntry._ID + "=?";
+                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                rowsDeleted = database.delete(BookEntry.TABLE_NAME, selection, selectionArgs);
+                break;
+            default:
+                throw new IllegalArgumentException("Deletion is not supported for " + uri);
+        }
+
+        if (rowsDeleted != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return rowsDeleted;
     }
-
-
 
 
     @Override

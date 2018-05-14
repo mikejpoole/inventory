@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".BookEdit">
+
+    <item
+        android:id="@+id/action_save"
+        android:title="@string/menu_action_save"
+        android:icon="@drawable/ic_done_white_24dp"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_order"
+        android:title="@string/menu_action_order"
+        android:icon="@drawable/ic_shopping_cart_white_24dp"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:title="@string/menu_action_delete"
+        android:icon="@drawable/ic_delete_forever_black_24dp"
+        app:showAsAction="always" />
+</menu>

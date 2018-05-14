@@ -1,0 +1,54 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="567" height="717" id="svg4726" sodipodi:version="0.32" inkscape:version="0.46" version="1.0" sodipodi:docname="outline.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs id="defs4728">
+    <inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 526.18109 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="744.09448 : 526.18109 : 1" inkscape:persp3d-origin="372.04724 : 350.78739 : 1" id="perspective4734"/>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.35" inkscape:cx="375" inkscape:cy="520" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" inkscape:window-width="669" inkscape:window-height="645" inkscape:window-x="23" inkscape:window-y="23"/>
+  <metadata id="metadata4731">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:title>Outline of bookcase</dc:title>
+        <dc:date>27/10/2008</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Thomas Hicks</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>bookcase</rdf:li>
+            <rdf:li>lineart</rdf:li>
+            <rdf:li>shelf</rdf:li>
+            <rdf:li>furniture</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-316.5,-602.43361)">
+    <g style="fill:none;stroke:#000000;stroke-width:3" id="g4497" transform="translate(225,428.57143)">
+      <path id="path4501" d="M 135.71429,761.6479 L 212.14286,868.79075 L 608.57143,728.07647 L 611.42857,703.07647 L 599.28571,688.79075 L 620.71429,238.07647 L 637.85714,236.6479 L 642.14286,228.79075 L 520.53572,200.75504 L 107.5,210.3979 L 113.57143,220.04075 L 126.42857,225.21932 L 142.14286,717.36218 L 137.20994,718.68395 L 131.78571,727.00504 L 132.14286,734.86218 L 136.78571,741.29075 L 135.71429,761.6479 z" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4503" d="M 113.39286,219.77289 L 196.875,254.86218 L 638.92857,235.21932 L 642.14286,229.1479 L 194.28571,244.86218 L 108.21429,210.93361 L 113.39286,219.77289 z" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4505" d="M 198.39286,254.86218 L 194.10714,244.68361" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path sodipodi:nodetypes="cccccccc" id="path4507" d="M 131.78571,735.21932 L 209.82143,837.18361 L 611.96429,703.43361 L 602.5,692.00503 L 213.57143,819.50504 L 136.42857,720.93361 L 131.07143,727.54075 L 131.78571,735.21932 z" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4509" d="M 141.60714,718.25504 L 216.4394,815.23015" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" sodipodi:nodetypes="cc"/>
+      <path sodipodi:nodetypes="ccccc" id="path4511" d="M 598.50644,689.10457 L 591.42857,691.45663 L 613.75,236.42468 L 620.89286,236.11218 L 598.50644,689.10457 z" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4513" d="M 203.92857,254.68361 L 216.47322,814.86218 L 226.23917,811.63707 L 216.60714,253.96932 L 203.92857,254.68361 z" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" sodipodi:nodetypes="ccccc"/>
+      <path id="path4515" d="M 591.24103,691.35203 L 493.92857,624.50504 L 224.28571,699.50504" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" sodipodi:nodetypes="ccc"/>
+      <path sodipodi:nodetypes="ccccc" id="path4517" d="M 589.64286,545.93361 L 223.03571,632.00504 L 223.03572,622.71932 L 590.17857,537.18361 L 589.64286,545.93361 z" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4519" d="M 589.46429,537.36218 L 499.10714,487.18361 L 221.42857,539.86218" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4521" d="M 220.71429,485.75504 L 595.53572,425.57647 L 595.89286,417.18361 L 220.17857,475.93361" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4523" d="M 595.71429,417.18361 L 502.80343,376.82267 L 219.45564,411.92547" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4525" d="M 218.69803,368.48891 L 599.19643,330.13004 L 599.10714,321.46932 L 217.85714,358.43361" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path id="path4527" d="M 598.57143,321.29075 L 504.46429,290.30861 L 216.42857,313.07647" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path sodipodi:nodetypes="cccccccc" id="path4529" d="M 503.62582,290.57799 L 505,240.93361 M 501.17706,377.33524 L 502.17315,339.91247 M 498.10976,487.34931 L 499.36565,440.87609 M 494.28571,624.50504 L 495.81853,567.92071" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+  </g>
+</svg>

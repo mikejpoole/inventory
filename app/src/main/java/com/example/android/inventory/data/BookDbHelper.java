@@ -25,8 +25,9 @@ public class BookDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_BOOK_TABLE =  "CREATE TABLE " + BookEntry.TABLE_NAME + " (" +
                 BookEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 BookEntry.COLUMN_BOOK_TITLE + " TEXT NOT NULL, " +
-                BookEntry.COLUMN_BOOK_PRICE + " TEXT, " +
+                BookEntry.COLUMN_BOOK_PRICE + " REAL, " +
                 BookEntry.COLUMN_BOOK_QUANTITY + " INTEGER NOT NULL DEFAULT 0, " +
+                BookEntry.COLUMN_BOOK_COVER + " TEXT, " +
                 BookEntry.COLUMN_BOOK_SUPPLIER_COMPANY_NAME + " TEXT, " +
                 BookEntry.COLUMN_BOOK_SUPPLIER_PHONE + " TEXT" +
         ");";
@@ -35,8 +36,10 @@ public class BookDbHelper extends SQLiteOpenHelper {
     }
 
     // ON UPGRADE
+    // Drop then recreate the table (remember this approach will cause all user's data in the table to be lost)
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // There will be no future versions of this database but if there are I can drop and recreate the tables here
+        db.execSQL("DROP TABLE IF EXISTS " + BookEntry.TABLE_NAME);
+        onCreate(db);
     }
 }

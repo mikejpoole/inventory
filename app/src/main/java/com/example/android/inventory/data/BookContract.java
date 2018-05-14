@@ -41,6 +41,7 @@ public final class BookContract {
         public final static String COLUMN_BOOK_TITLE = "title";
         public final static String COLUMN_BOOK_PRICE = "dPrice";
         public final static String COLUMN_BOOK_QUANTITY = "iQuantity";
+        public final static String COLUMN_BOOK_COVER = "cover";
         public final static String COLUMN_BOOK_SUPPLIER_COMPANY_NAME = "supplier_company_name";
         public final static String COLUMN_BOOK_SUPPLIER_PHONE = "supplier_phone";
     }
